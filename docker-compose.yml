@@ -1,0 +1,12 @@
+services:
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    command: uvicorn src.main:app --host 0.0.0.0 --reload
+    env_file:
+      - ./.env
+    volumes:
+      - .:/usr/src/app
+    restart: always
